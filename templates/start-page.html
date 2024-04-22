@@ -24,10 +24,17 @@
             <p>Text
             </p>
         </div>
-        <div class="buttons">
-            <button class="button" onclick="window.location.href='/sign_up'">Sign Up</button>
-            <button class="button" onclick="window.location.href='/log_in'">Log In</button>
+        {% if get_flashed_messages() %}
+        <div class="flash">
+            {% for msg in get_flashed_messages() %}
+            <div>{{msg}}</div>
+            {% endfor %}
         </div>
+        {% endif %}
+        <form action='/' method='post' class="buttons">
+            <input type="text" class="input-field" name='name' id='name' placeholder="name">
+            <button class="button" onclick="window.location.href='/'">Take Quiz</button>
+        </form>
     </div>
 </body>
 

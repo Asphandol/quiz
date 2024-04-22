@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question</title>
     <link rel="stylesheet" href="../static/styles/general.css">
-    <link rel="stylesheet" href="../static/styles/question.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles/start.css">
 </head>
 
 <body>
@@ -21,16 +16,16 @@
             <div class="name">
                 <h1>Питання</h1>
             </div>
-            <div class="buttons">
+            <form action='/question_one' method='post' class="buttons">
                 <div class="buttons-row">
-                    <button class="button" onclick="window.location.href='/'">1</button>
-                    <button class="button" onclick="window.location.href='/'">2</button>
+                    <button class="button" type='submit' name='button' value="incorrect">1</button>
+                    <button class="button" type='submit' name='button' value="incorrect">2</button>
                 </div>
                 <div class="buttons-row">
-                    <button class="button" onclick="window.location.href='/'">3</button>
-                    <button class="button" onclick="window.location.href='/'">4</button>
+                    <button class="button" type='submit' name='button' value="correct">3</button>
+                    <button class="button" type='submit' name='button' value="incorrect">4</button>
                 </div>
-            </div>
+            </form>
         </div>
 </body>
 

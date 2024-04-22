@@ -5,7 +5,9 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 
 app = Flask(__name__)
 
-@app.route("/")
+app.secret_key = "mega_secret_key"
+
+@app.route("/", methods=["POST", "GET"])
 def start():
     """
     starting page
@@ -14,6 +16,7 @@ def start():
     session["previous"] = 0
     if request.method == "POST":
         name = request.form["name"]
+        print(name)
         if not name:
             flash("Enter your name")
             return render_template("start-page.html")
@@ -27,11 +30,11 @@ def first():
     """
     session["grade"] = session["previous"]
     if request.method == "POST":
-        if request.form == "":
+        if request.form["button"] == "correct":
             session["previous"] = session["grade"]
             session["grade"] = session["grade"] + 1
         return redirect(url_for("second"))
-    return render_template("question_one.html")
+    return render_template("question.html")
 
 @app.route("/question_two", methods=["POST", "GET"])
 def second():
@@ -40,7 +43,7 @@ def second():
     """
     session["grade"] = session["previous"]
     if request.method == "POST":
-        if request.form == "":
+        if request.form["button"] == "correct":
             session["previous"] = session["grade"]
             session["grade"] = session["grade"] + 1
         return redirect(url_for("third"))
@@ -53,7 +56,7 @@ def third():
     """
     session["grade"] = session["previous"]
     if request.method == "POST":
-        if request.form == "":
+        if request.form["button"] == "correct":
             session["previous"] = session["grade"]
             session["grade"] = session["grade"] + 1
         return redirect(url_for("fourth"))
@@ -66,7 +69,7 @@ def fourth():
     """
     session["grade"] = session["previous"]
     if request.method == "POST":
-        if request.form == "":
+        if request.form["button"] == "correct":
             session["previous"] = session["grade"]
             session["grade"] = session["grade"] + 1
         return redirect(url_for("fifth"))
@@ -79,7 +82,7 @@ def fifth():
     """
     session["grade"] = session["previous"]
     if request.method == "POST":
-        if request.form == "":
+        if request.form["button"] == "correct":
             session["previous"] = session["grade"]
             session["grade"] = session["grade"] + 1
         return redirect(url_for("sixth"))
@@ -92,7 +95,7 @@ def sixth():
     """
     session["grade"] = session["previous"]
     if request.method == "POST":
-        if request.form == "":
+        if request.form["button"] == "correct":
             session["previous"] = session["grade"]
             session["grade"] = session["grade"] + 1
         return redirect(url_for("seventh"))
@@ -105,7 +108,7 @@ def seventh():
     """
     session["grade"] = session["previous"]
     if request.method == "POST":
-        if request.form == "":
+        if request.form["button"] == "correct":
             session["previous"] = session["grade"]
             session["grade"] = session["grade"] + 1
         return redirect(url_for("eighth"))
@@ -118,7 +121,7 @@ def eighth():
     """
     session["grade"] = session["previous"]
     if request.method == "POST":
-        if request.form == "":
+        if request.form["button"] == "correct":
             session["previous"] = session["grade"]
             session["grade"] = session["grade"] + 1
         return redirect(url_for("ninth"))
@@ -132,7 +135,7 @@ def ninth():
     """
     session["grade"] = session["previous"]
     if request.method == "POST":
-        if request.form == "":
+        if request.form["button"] == "correct":
             session["previous"] = session["grade"]
             session["grade"] = session["grade"] + 1
         return redirect(url_for("tenth"))
@@ -145,7 +148,7 @@ def tenth():
     """
     session["grade"] = session["previous"]
     if request.method == "POST":
-        if request.form == "":
+        if request.form["button"] == "correct":
             session["previous"] = session["grade"]
             session["grade"] = session["grade"] + 1
         return redirect(url_for("result"))
