@@ -13,6 +13,10 @@ def start():
     session["grade"] = 0
     session["previous"] = 0
     if request.method == "POST":
+        name = request.form["name"]
+        if not name:
+            flash("Enter your name")
+            return render_template("start-page.html")
         return redirect(url_for("first"))
     return render_template("start-page.html")
 
