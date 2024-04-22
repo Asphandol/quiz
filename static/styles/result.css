@@ -1,0 +1,51 @@
+.container {
+    width: 600px;
+    height: 330px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #000;
+    text-align: left;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 22px;
+}
+
+a {
+    color: #569DAA;
+    text-decoration: none;
+}
+
+
+.name {
+    display: flex;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
