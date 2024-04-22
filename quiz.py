@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__)
 
-app.secret_key = os.urandom(24)
+app.secret_key = "mega_secret_key"
 
 @app.route("/", methods=["POST", "GET"])
 def start():
@@ -16,37 +16,153 @@ def start():
     session["grade"] = 0
     session["previous"] = 0
     if request.method == "POST":
-        name = request.form.get("name")
+        name = request.form["name"]
+        print(name)
         if not name:
             flash("Enter your name")
             return render_template("start-page.html")
         return redirect(url_for("first"))
     return render_template("start-page.html")
 
-def process_question(correct_answer):
-    if request.form.get("button") == correct_answer:
-        session["previous"] = session["grade"]
-        session["grade"] += 1
-
 @app.route("/question_one", methods=["POST", "GET"])
 def first():
     """
     first question
     """
-    process_question("correct")
-    return redirect(url_for("second"))
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("second"))
+    return render_template("question.html")
 
-# Routes for other questions follow a similar pattern
-# Consolidate the question routes into a single function to avoid repetition
+@app.route("/question_two", methods=["POST", "GET"])
+def second():
+    """
+    first question
+    """
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("third"))
+    return render_template("question_two.html")
+
+@app.route("/question_three", methods=["POST", "GET"])
+def third():
+    """
+    first question
+    """
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("fourth"))
+    return render_template("question_three.html")
+
+@app.route("/question_four", methods=["POST", "GET"])
+def fourth():
+    """
+    first question
+    """
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("fifth"))
+    return render_template("question_four.html")
+
+@app.route("/question_five", methods=["POST", "GET"])
+def fifth():
+    """
+    first question
+    """
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("sixth"))
+    return render_template("question_five.html")
+
+@app.route("/question_six", methods=["POST", "GET"])
+def sixth():
+    """
+    first question
+    """
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("seventh"))
+    return render_template("question_six.html")
+
+@app.route("/question_seven", methods=["POST", "GET"])
+def seventh():
+    """
+    first question
+    """
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("eighth"))
+    return render_template("question_seven.html")
+
+@app.route("/question_eight", methods=["POST", "GET"])
+def eighth():
+    """
+    first question
+    """
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("ninth"))
+    return render_template("question_eight.html")
+
+
+@app.route("/question_nine", methods=["POST", "GET"])
+def ninth():
+    """
+    first question
+    """
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("tenth"))
+    return render_template("question_nine.html")
+
+@app.route("/question_ten", methods=["POST", "GET"])
+def tenth():
+    """
+    first question
+    """
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("result"))
+    return render_template("question_ten.html")
 
 @app.route("/result", methods=["POST", "GET"])
 def result():
     """
-    Results page
+    first question
     """
     if request.method == "POST":
         return redirect(url_for("start"))
-    return render_template("result.html", grade=session["grade"])
+    return render_template("question_one.html", grade = session["grade"])
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
