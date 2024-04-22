@@ -43,6 +43,7 @@ a {
 }
 
 .button {
+    font-family: "Montserrat", sans-serif;
     width: 200px;
     height: 60px;
     margin-bottom: 20px;
@@ -61,4 +62,31 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+/* Styles for screens smaller than 768px (phones) */
+@media (max-width: 768px) {
+    .container {
+        /* Adjust container styles for smaller screens */
+        padding: 20px;
+        font-size: 12px;
+        /* Add some padding */
+        width: 95%;
+        display: grid;
+        align-content: center;
+        justify-items: center;
+    }
+
+    .text {
+        text-align: center;
+        /* Center the text on phones */
+    }
+
+    .button {
+        height: 50px;
+        font-size: 18px;
+        /* Adjust button font size */
+        width: 150px;
+        /* Make button full width */
+    }
 }
