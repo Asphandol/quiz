@@ -18,22 +18,11 @@
 
     <div class="container">
         <div class="text">
-            <div class="name">
-                <h1>Name</h1>
-            </div>
             <p>Text
             </p>
         </div>
-        {% if get_flashed_messages() %}
-        <div class="flash">
-            {% for msg in get_flashed_messages() %}
-            <div>{{msg}}</div>
-            {% endfor %}
-        </div>
-        {% endif %}
         <form action='/' method='post' class="buttons">
-            <input type="text" class="input-field" name='name' id='name' placeholder="name">
-            <button class="button" onclick="window.location.href='/'">Take Quiz</button>
+            <button class="button" type='submit' name='button'>Take Quiz</button>
         </form>
     </div>
 </body>

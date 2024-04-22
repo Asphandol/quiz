@@ -14,19 +14,66 @@
     <div class="container">
         <div class="text">
             <div class="name">
-                <h1>Питання</h1>
+                <h1>{{ name }}</h1>
             </div>
-            <form action='/question_one' method='post' class="buttons">
+            <form id="myForm"  method='post' class="buttons">
                 <div class="buttons-row">
-                    <button class="button" type='submit' name='button' value="incorrect">1</button>
-                    <button class="button" type='submit' name='button' value="incorrect">2</button>
+                    <button class="button" type='submit' name='button' value='{{one}}'> {{ one }}</button>
+                    <button class="button" type='submit' name='button' value='{{two}}'>{{ two }}</button>
                 </div>
                 <div class="buttons-row">
-                    <button class="button" type='submit' name='button' value="correct">3</button>
-                    <button class="button" type='submit' name='button' value="incorrect">4</button>
+                    <button class="button" type='submit' name='button' value='{{three}}'>{{ three }}</button>
+                    <button class="button" type='submit' name='button' value='{{four}}'>{{ four }}</button>
                 </div>
             </form>
         </div>
 </body>
+
+<script>
+    function changeAction(site) {
+        var form = document.getElementById("myForm");
+        switch (site) {
+            case '/question_one':
+                form.action = '/question_one';
+                break;
+            case '/question_two':
+                form.action = '/question_two';
+                break;
+            case '/question_three':
+                form.action = '/question_three';
+                break;
+            case '/question_four':
+                form.action = '/question_four';
+                break;
+            case '/question_five':
+                form.action = '/question_five';
+                break;
+            case '/question_six':
+                form.action = '/question_six';
+                break;
+            case '/question_seven':
+                form.action = '/question_seven';
+                break;
+            case '/question_eight':
+                form.action = '/question_eight';
+                break;
+            case '/question_nine':
+                form.action = '/question_nine';
+                break;
+            case '/question_ten':
+                form.action = '/question_ten';
+                break;
+            case '/question_eleven':
+                form.action = '/question_eleven';
+                break;
+            case '/question_four':
+                form.action = '/question_twelve';
+                break;
+            default:
+                form.action = '';
+                break;
+        }
+    }
+</script>
 
 </html>
