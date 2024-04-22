@@ -151,8 +151,34 @@ def tenth():
         if request.form["button"] == "correct":
             session["previous"] = session["grade"]
             session["grade"] = session["grade"] + 1
-        return redirect(url_for("result"))
+        return redirect(url_for("eleventh"))
     return render_template("question_ten.html")
+
+@app.route("/question_ten", methods=["POST", "GET"])
+def eleventh():
+    """
+    first question
+    """
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("twelfth"))
+    return render_template("question_eleven.html")
+
+@app.route("/question_ten", methods=["POST", "GET"])
+def twelfth():
+    """
+    first question
+    """
+    session["grade"] = session["previous"]
+    if request.method == "POST":
+        if request.form["button"] == "correct":
+            session["previous"] = session["grade"]
+            session["grade"] = session["grade"] + 1
+        return redirect(url_for("result"))
+    return render_template("question_twelve.html")
 
 @app.route("/result", methods=["POST", "GET"])
 def result():
