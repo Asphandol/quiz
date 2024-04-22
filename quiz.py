@@ -59,9 +59,9 @@ def second():
         return redirect(url_for("third"))
     return render_template("question.html",
                            name = dct_quiz["name"],
-                           one = dct_quiz["in1"],
+                           three = dct_quiz["in1"],
                            two = dct_quiz["in2"],
-                           three = dct_quiz["correct"],
+                           one = dct_quiz["correct"],
                            four = dct_quiz["in3"])
 
 @app.route("/question_three", methods=["POST", "GET"])
@@ -84,8 +84,8 @@ def third():
                            name = dct_quiz["name"],
                            one = dct_quiz["in1"],
                            two = dct_quiz["in2"],
-                           three = dct_quiz["correct"],
-                           four = dct_quiz["in3"])
+                           four = dct_quiz["correct"],
+                           three = dct_quiz["in3"])
 
 @app.route("/question_four", methods=["POST", "GET"])
 def fourth():
@@ -129,8 +129,8 @@ def fifth():
     return render_template("question.html",
                            name = dct_quiz["name"],
                            one = dct_quiz["in1"],
-                           two = dct_quiz["in2"],
-                           three = dct_quiz["correct"],
+                           three = dct_quiz["in2"],
+                           two = dct_quiz["correct"],
                            four = dct_quiz["in3"])
 
 @app.route("/question_six", methods=["POST", "GET"])
@@ -151,9 +151,9 @@ def sixth():
         return redirect(url_for("seventh"))
     return render_template("question.html",
                            name = dct_quiz["name"],
-                           one = dct_quiz["in1"],
+                           three = dct_quiz["in1"],
                            two = dct_quiz["in2"],
-                           three = dct_quiz["correct"],
+                           one = dct_quiz["correct"],
                            four = dct_quiz["in3"])
 
 @app.route("/question_seven", methods=["POST", "GET"])
@@ -174,9 +174,9 @@ def seventh():
         return redirect(url_for("eighth"))
     return render_template("question.html",
                            name = dct_quiz["name"],
-                           one = dct_quiz["in1"],
+                           three = dct_quiz["in1"],
                            two = dct_quiz["in2"],
-                           three = dct_quiz["correct"],
+                           one = dct_quiz["correct"],
                            four = dct_quiz["in3"])
 
 @app.route("/question_eight", methods=["POST", "GET"])
@@ -199,8 +199,8 @@ def eighth():
                            name = dct_quiz["name"],
                            one = dct_quiz["in1"],
                            two = dct_quiz["in2"],
-                           three = dct_quiz["correct"],
-                           four = dct_quiz["in3"])
+                           four = dct_quiz["correct"],
+                           three = dct_quiz["in3"])
 
 
 @app.route("/question_nine", methods=["POST", "GET"])
@@ -223,8 +223,8 @@ def ninth():
                            name = dct_quiz["name"],
                            one = dct_quiz["in1"],
                            two = dct_quiz["in2"],
-                           three = dct_quiz["correct"],
-                           four = dct_quiz["in3"])
+                           four = dct_quiz["correct"],
+                           three = dct_quiz["in3"])
 
 @app.route("/question_ten", methods=["POST", "GET"])
 def tenth():
@@ -245,8 +245,8 @@ def tenth():
     return render_template("question.html",
                            name = dct_quiz["name"],
                            one = dct_quiz["in1"],
-                           two = dct_quiz["in2"],
-                           three = dct_quiz["correct"],
+                           three = dct_quiz["in2"],
+                           two = dct_quiz["correct"],
                            four = dct_quiz["in3"])
 
 @app.route("/question_eleven", methods=["POST", "GET"])
@@ -267,9 +267,9 @@ def eleventh():
         return redirect(url_for("twelfth"))
     return render_template("question.html",
                            name = dct_quiz["name"],
-                           one = dct_quiz["in1"],
+                           three = dct_quiz["in1"],
                            two = dct_quiz["in2"],
-                           three = dct_quiz["correct"],
+                           one = dct_quiz["correct"],
                            four = dct_quiz["in3"])
 
 @app.route("/question_twelve", methods=["POST", "GET"])
@@ -292,8 +292,8 @@ def twelfth():
                            name = dct_quiz["name"],
                            one = dct_quiz["in1"],
                            two = dct_quiz["in2"],
-                           three = dct_quiz["correct"],
-                           four = dct_quiz["in3"])
+                           four = dct_quiz["correct"],
+                           three = dct_quiz["in3"])
 
 @app.route("/result", methods=["POST", "GET"])
 def result():
